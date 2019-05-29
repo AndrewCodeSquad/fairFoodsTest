@@ -1,19 +1,20 @@
 const express = require('express');
 const app = express();
-
+const bodyParser = require('body-parser');          // Require body-parser package 
+app.use(bodyParser.urlencoded({ extended: true })); // Use body-parser on all requests
 let orders = []; // "orders" array will store 1 object for each order
+let message = ''; // "message" will tell user their order was accepted
 
 app.use('/img', express.static('img')); // Static images folder
 
+// MAIN ROUTE
+app.get('/', (req, res) => res.render('reservation.ejs', { message: message }));
 
-app.get('/', (req, res) => res.render('reservation.ejs'));
-app.get('/orders', (req, res) => res.render('orders/new.ejs'));
-
-// CREATE NEW ORDER IN DATABASE
+// CREATE NEW ORDER
 app.post('/order', (req, res) => {
-  // Save user input from request body into individual variables
-  var client = req.body.client;
-  var bags = req.body.bags;
+  orders.push({clientName: req.body.clientName, bags: req.body.bags}); // push order into array
+  console.log(orders);
+  message = 'Order accepted: ' + req.body.clientName + ', ' + req.body.bags + ' bags. Thanks for your order!';
   // Redirect back to order form
   res.redirect('/');
 });

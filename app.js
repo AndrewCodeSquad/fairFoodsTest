@@ -1,8 +1,10 @@
-const express = require('express'),
-					app = express();
+const express = require('express');
+const app = express();
 
-// app.set('view engine', 'ejs');
-app.use('/img', express.static('img'));
+let orders = []; // "orders" array will store 1 object for each order
+
+app.use('/img', express.static('img')); // Static images folder
+
 
 app.get('/', (req, res) => res.render('reservation.ejs'));
 app.get('/orders', (req, res) => res.render('orders/new.ejs'));
@@ -12,15 +14,6 @@ app.post('/order', (req, res) => {
   // Save user input from request body into individual variables
   var client = req.body.client;
   var bags = req.body.bags;
-  // Create a new order and save to database
-  Order.create({
-    client: client,
-    bags: bags
-  }, function (err, newOrder){
-    if(err){
-      console.log(err);
-    }
-  })
   // Redirect back to order form
   res.redirect('/');
 });

@@ -1,0 +1,27 @@
+.headerSpacing {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+#orderList {
+  /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
+  border-collapse: collapse;
+  width: 100%;
+}
+#orderList td, #orderList th {
+  border: 1px solid #e9ecef;
+  padding: 8px;
+}
+#orderList tr:nth-child(odd){
+	background-color: #e9ecef;
+}
+#orderList tr:hover {
+	background-color: #f2f2f2;
+}
+#orderList th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #b1b5ba;
+  color: white;
+}

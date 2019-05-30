@@ -5,6 +5,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // Use body-parser on all re
 let orders = []; // "orders" array will store 1 object for each order
 let message = ''; // "message" will tell user their order was accepted
 
+app.use('/css', express.static('css')); // Static CSS folder
 app.use('/img', express.static('img')); // Static images folder
 
 // MAIN ROUTE
@@ -12,7 +13,7 @@ app.get('/', (req, res) => res.render('reservation.ejs', { message: message }));
 // app.get('/', (req, res) => res.send('Fair Foods Reservation System'));
 
 // LIST ALL ORDERS (for use by Lena Park staff)
-// app.get('/allOrders', (req, res) => res.render('orders.ejs'));
+app.get('/allOrders', (req, res) => res.render('allOrders.ejs', { orders: orders }));
 
 // CREATE NEW ORDER
 app.post('/order', (req, res) => {

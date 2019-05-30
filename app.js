@@ -9,6 +9,10 @@ app.use('/img', express.static('img')); // Static images folder
 
 // MAIN ROUTE
 app.get('/', (req, res) => res.render('reservation.ejs', { message: message }));
+// app.get('/', (req, res) => res.send('Fair Foods Reservation System'));
+
+// LIST ALL ORDERS (for use by Lena Park staff)
+// app.get('/allOrders', (req, res) => res.render('orders.ejs'));
 
 // CREATE NEW ORDER
 app.post('/order', (req, res) => {

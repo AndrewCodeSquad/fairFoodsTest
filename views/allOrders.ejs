@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Fair Foods at Lena Park Order Administration</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 		integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
 	<div class='container'>
 		<!-- Banner at top of page -->
 		<header class='container-fluid' style="background-color: #e9ecef;">
 			<div class="headerSpacing">
-				<h2>Fair Foods at Lena Park - Order Administration</h2>
+				<div>
+					<h2>Fair Foods at Lena Park - Order Administration</h2>
+					<p style="text-align: center;"><a href="/">Return to home page</a></p>
+				</div>
 				<img src="../img/fairFoodsSm.jpg">
 			</div>
 		</header>
@@ -23,7 +28,7 @@
 				<th>Number of bags</th>
 			</tr>
 			<tr>
-				<td>Sample customer</td>
+				<td><%= orders[0].clientName %></td>
 				<td>##</td>
 			</tr>
 			<tr>

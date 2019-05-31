@@ -3,8 +3,8 @@
 
 <head>
 	<title>Fair Foods at Lena Park Order Administration</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-		integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -21,20 +21,39 @@
 			</div>
 		</header>
 		<!-- Display all orders -->
-		<!--  for(let i = 0; i < orders.length; i++) { -->
 		<table id="orderList">
 			<tr>
 				<th>Customer</th>
 				<th>Number of bags</th>
+				<th>Status</th>
+				<th>Delete?</th>
 			</tr>
-			<tr>
-				<td><%= orders[0].clientName %></td>
-				<td>##</td>
-			</tr>
-			<tr>
-				<td>Sample customer 2</td>
-				<td>##</td>
-			</tr>
+			<% if(orders[0]){ %>
+				<% for(let i=0; i < orders.length; i++) { %>
+					<tr>
+						<td><%= orders[i].clientName %></td>
+						<td><%= orders[i].bags %></td>
+						<td><button class="btn btn-secondary btn-sm">Fulfill</button></td>
+						<td><i class="fas fa-trash-alt"></i></td>
+					</tr>
+					<% orderTotal += Number(orders[i].bags) %>
+				<% } %>
+				<tfoot>
+					<tr>
+						<td>Total grocery bags</td>
+						<td><%= orderTotal %></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tfoot>
+			<% } else { %>
+				<tr>
+					<td>No orders entered</td>
+					<td>##</td>
+					<td></td>
+					<td></td>
+				</tr>
+			<% } %>
 		</table>
 
 

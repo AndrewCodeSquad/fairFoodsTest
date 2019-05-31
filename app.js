@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');          // Require body-parser package 
 app.use(bodyParser.urlencoded({ extended: true })); // Use body-parser on all requests
 let orders = []; // "orders" array will store 1 object for each order
+let orderTotal = 0; // Sum of all bags ordered
 let message = ''; // "message" will tell user their order was accepted
 
 app.use('/css', express.static('css')); // Static CSS folder
@@ -13,7 +14,7 @@ app.get('/', (req, res) => res.render('reservation.ejs', { message: message }));
 // app.get('/', (req, res) => res.send('Fair Foods Reservation System'));
 
 // LIST ALL ORDERS (for use by Lena Park staff)
-app.get('/allOrders', (req, res) => res.render('allOrders.ejs', { orders: orders }));
+app.get('/allOrders', (req, res) => res.render('allOrders.ejs', { orders: orders, orderTotal: orderTotal }));
 
 // CREATE NEW ORDER
 app.post('/order', (req, res) => {

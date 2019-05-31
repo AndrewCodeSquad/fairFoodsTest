@@ -4,7 +4,6 @@
 	align-items: center;
 }
 #orderList {
-  /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
   border-collapse: collapse;
   width: 100%;
 }
@@ -23,5 +22,10 @@
   padding-bottom: 12px;
   text-align: left;
   background-color: #b1b5ba;
+  color: white;
+}
+#orderList tfoot td {
+  background-color: #b1b5ba;
+  font-weight: bold;
   color: white;
 }
